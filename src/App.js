@@ -38,10 +38,11 @@ function App() {
       <MessageBox />
       {isLoading ? <Loading /> : null}
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/other" component={Other} />
+        <Route exact path="/" component={Login} />
+        <Route path="/mypage" component={MyPage} />
         <Route path="/signup" component={SignUp} />
-        <Route path="/login" component={Login} />
+        <Route path="/subject" component={Subject}/>
+        <Route path="/flashcards" component={FlashCard}/>
       </Switch>
     </div>
   );
