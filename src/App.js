@@ -14,7 +14,6 @@ import Subject from "./pages/Subject"
 import Mypage from "./pages/Mypage"
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
-import { getUserWithStoredToken } from "./store/user/actions";
 // import { Jumbotron } from "react-bootstrap";
 
 // const Home = () => (
@@ -49,8 +48,8 @@ function App() {
         <Route exact path="/" component={Login} />
         <Route path="/mypage" component={Mypage} />
         <Route path="/signup" component={SignUp} />
-        <Route path="/subject" component={Subject}/>
-        <Route path="/flashcards" component={FlashCard}/>
+        <Route path="/subject" component={Subject} />
+        <Route path="/flashcards" component={FlashCard} />
       </Switch>
     </div>
   );
