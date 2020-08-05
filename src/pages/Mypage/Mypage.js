@@ -1,9 +1,14 @@
-import React, { useEffect } from "react"
-import { fetchAllSubjets } from '../store/subject/actions'
-import { selectAllSubjects, } from '../store/subject/selectors'
+import React, { useEffect, useState } from "react"
+import { fetchAllSubjets } from '../../store/subject/actions'
+import { selectAllSubjects, } from '../../store/subject/selectors'
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom'
+import AddSubjectForm from "./AddSubjectForm";
+
+
 export default function MyPage() {
+  const [showForm, set_showForm] = useState(false)
+
   const dispatch = useDispatch();
   const allSubjects = useSelector(selectAllSubjects)
   console.log('all subjects', allSubjects)
@@ -27,6 +32,9 @@ export default function MyPage() {
           </Link>
         </li>)}
       </ul>
+
+      <button onClick={()=> set_showForm(true)}>Create new Subject</button>
+      {showForm? <AddSubjectForm/>: null}
     </div>
   )
 
