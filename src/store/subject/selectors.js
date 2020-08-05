@@ -1,3 +1,3 @@
 
-export const selectAllCourses = state => state.allSubjects
-export const selectActiveCourse = state => state.activeSubject
+export const selectAllSubjects = state => state.subject.allSubjects
+export const selectActiveCourse = state => state.subject.activeSubject
