@@ -1,18 +1,17 @@
 import React, { useEffect } from "react";
 import "./App.css";
-
 import { Switch, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Loading from "./components/Loading";
 import MessageBox from "./components/MessageBox";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
-
+import { fetchFlashcardById } from './store/flashcard/actions'
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
 import { Jumbotron } from "react-bootstrap";
-
+import { selectCurrentFlashcard } from './store/flashcard/selectors'
 const Home = () => (
   <Jumbotron>
     <h1>Home</h1>
@@ -28,8 +27,12 @@ function App() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectAppLoading);
 
+  console.log('Current flashcard', useSelector(selectCurrentFlashcard))
+
   useEffect(() => {
     dispatch(getUserWithStoredToken());
+    dispatch(fetchFlashcardById(1));
+
   }, [dispatch]);
 
   return (
