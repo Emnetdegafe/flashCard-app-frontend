@@ -48,7 +48,7 @@ function App() {
         <Route exact path="/" component={Login} />
         <Route path="/mypage" component={Mypage} />
         <Route path="/signup" component={SignUp} />
-        <Route path="/subject" component={Subject} />
+        <Route path="/subject/:subjectId" component={Subject} />
         <Route path="/flashcards" component={FlashCard} />
       </Switch>
     </div>

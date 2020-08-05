@@ -22,7 +22,7 @@ export default function MyPage() {
 
       <ul>
         {allSubjects.map((subject) => <li key={subject.id}>
-          <Link to={`/subject`} onClick={() => dispatch(fetchSubjectById(subject.id))}>
+          <Link to={`/subject/${subject.id}`} >
             {subject.name}
           </Link>
         </li>)}
