@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 
+
+
 # testing
 /coverage
 
@@ -16,6 +18,7 @@
 .env.local
 .env.development
 .env.development.local
+.env.development
 .env.test.local
 .env.production.local
 

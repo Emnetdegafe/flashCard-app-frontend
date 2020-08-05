@@ -11,8 +11,6 @@ import LoggedOut from "./LoggedOut";
 export default function Navigation() {
   const token = useSelector(selectToken);
 
-  const loginLogoutControls = token ? <LoggedIn /> : <LoggedOut />;
-
   return (
     <Navbar bg="light" expand="lg">
       <Navbar.Brand as={NavLink} to="/">
@@ -23,7 +21,7 @@ export default function Navigation() {
         <Nav style={{ width: "100%" }} fill>
           <NavbarItem path="/" linkText="Home" />
           <NavbarItem path="/other" linkText="Other" />
-          {loginLogoutControls}
+          {token && <LoggedIn />}
         </Nav>
       </Navbar.Collapse>
     </Navbar>
