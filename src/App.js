@@ -6,9 +6,7 @@ import Loading from "./components/Loading";
 import MessageBox from "./components/MessageBox";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
-import { fetchFlashcardById } from './store/flashcard/actions'
 import { getUserWithStoredToken } from "./store/user/actions";
-import { selectCurrentFlashcard } from './store/flashcard/selectors'
 import FlashCard from "./pages/FlashCard"
 import Subject from "./pages/Subject"
 import Mypage from "./pages/Mypage"
@@ -31,11 +29,9 @@ function App() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectAppLoading);
 
-  console.log('Current flashcard', useSelector(selectCurrentFlashcard))
 
   useEffect(() => {
     dispatch(getUserWithStoredToken());
-    dispatch(fetchFlashcardById(1));
 
   }, [dispatch]);
 
@@ -48,8 +44,8 @@ function App() {
         <Route exact path="/" component={Login} />
         <Route path="/mypage" component={Mypage} />
         <Route path="/signup" component={SignUp} />
-        <Route path="/subject" component={Subject} />
-        <Route path="/flashcards" component={FlashCard} />
+        <Route path="/subject/:subjectId" component={Subject} />
+        <Route path="/flashcards/:flashcardId" component={FlashCard} />
       </Switch>
     </div>
   );

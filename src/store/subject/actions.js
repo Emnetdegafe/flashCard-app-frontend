@@ -3,6 +3,7 @@ export const ADD_USER_SUBJECTS = 'ADD_USER_SUBJECTS'
 export const ADD_ACTIVE_SUBJECT = 'ADD_ACTIVE_SUBJECT'
 
 export const fetchAllSubjets = () => async (dispatch, useState) => {
+	console.log('fetching all subjects')
 
 	const { token } = useState().user
 
