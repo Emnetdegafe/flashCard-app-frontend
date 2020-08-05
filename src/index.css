@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Rose&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Red Rose", cursive;
+  min-height: 100vh;
+  background-color: #006d17 !important;
+  color: #031508;
+}
