@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import { fetchAllSubjets, fetchSubjectById } from '../store/subject/actions'
+import { fetchAllSubjets } from '../store/subject/actions'
 import { selectAllSubjects, } from '../store/subject/selectors'
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom'

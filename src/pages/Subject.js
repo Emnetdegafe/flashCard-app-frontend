@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import { fetchAllSubjets, fetchSubjectById } from '../store/subject/actions'
+import { fetchSubjectById } from '../store/subject/actions'
 import { selectActiveSubject } from '../store/subject/selectors'
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from 'react-router-dom'
@@ -13,7 +13,7 @@ export default function MyPage() {
 
     useEffect(() => {
         dispatch(fetchSubjectById(subjectId))
-    }, [])
+    }, [subjectId, dispatch])
 
     if (!activeSubject || !activeSubject.name) return null
     return (

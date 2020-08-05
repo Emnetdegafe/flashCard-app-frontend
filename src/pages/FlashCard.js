@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { fetchFlashcardById } from '../store/flashcard/actions'
 import { selectCurrentFlashcard } from '../store/flashcard/selectors'
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 export default function FlashCard() {
     const [selectedOption, set_selectedOption] = useState()
@@ -19,7 +19,7 @@ export default function FlashCard() {
     useEffect(() => {
         dispatch(fetchFlashcardById(flashcardId));
 
-    }, [dispatch]);
+    }, [dispatch, flashcardId]);
 
     if (!currentFlashcard.title) return null
 
