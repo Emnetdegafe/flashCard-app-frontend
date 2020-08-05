@@ -31,11 +31,9 @@ function App() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectAppLoading);
 
-  console.log('Current flashcard', useSelector(selectCurrentFlashcard))
 
   useEffect(() => {
     dispatch(getUserWithStoredToken());
-    dispatch(fetchFlashcardById(1));
 
   }, [dispatch]);
 
@@ -49,7 +47,7 @@ function App() {
         <Route path="/mypage" component={Mypage} />
         <Route path="/signup" component={SignUp} />
         <Route path="/subject/:subjectId" component={Subject} />
-        <Route path="/flashcards" component={FlashCard} />
+        <Route path="/flashcards/:flashcardId" component={FlashCard} />
       </Switch>
     </div>
   );
