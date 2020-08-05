@@ -2,13 +2,16 @@ import React, { useEffect } from "react"
 import { fetchFlashcardById } from '../store/flashcard/actions'
 import { selectCurrentFlashcard } from '../store/flashcard/selectors'
 import { useDispatch, useSelector } from "react-redux";
+import { Link, useParams } from 'react-router-dom'
 
 export default function FlashCard() {
+    const { flashcardId } = useParams()
+    console.log('flashcard ID', flashcardId)
     const dispatch = useDispatch();
     const currentFlashcard = useSelector(selectCurrentFlashcard)
 
     useEffect(() => {
-        dispatch(fetchFlashcardById(1));
+        dispatch(fetchFlashcardById(flashcardId));
 
     }, [dispatch]);
 
