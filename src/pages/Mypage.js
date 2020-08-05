@@ -26,8 +26,7 @@ export default function MyPage() {
 
   return (
     <div>
-      <h1>All subjects</h1>
-
+      <h1>All subjects </h1>
       {allSubjects.map((subject) => (
         <CardGroup
           style={{

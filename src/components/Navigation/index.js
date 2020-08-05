@@ -12,15 +12,13 @@ export default function Navigation() {
   const token = useSelector(selectToken);
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar style={{ background: "#006d17" }} expand="lg">
       <Navbar.Brand as={NavLink} to="/">
-        YOUR PROJECT NAME
+        Flash
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav style={{ width: "100%" }} fill>
-          <NavbarItem path="/" linkText="Home" />
-          <NavbarItem path="/other" linkText="Other" />
           {token && <LoggedIn />}
         </Nav>
       </Navbar.Collapse>
