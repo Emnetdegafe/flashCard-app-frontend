@@ -26,23 +26,30 @@ export default function MyPage() {
 
   return (
     <div>
-      <h1>All subjects </h1>
-      {allSubjects.map((subject) => (
-        <CardGroup
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            width: "18rem",
-            height: "10rem",
-          }}
-        >
-          <Card style={{ flex: 1 }} key={subject.id}>
+      <h3>All subjects </h3>
+      <CardGroup
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          flexDirection: "row",
+        }}
+      >
+        {allSubjects.map((subject) => (
+          <Card
+            style={{
+              height: "250px",
+              width: "200px",
+              margin: "5px",
+              background: "#71CB99",
+            }}
+            key={subject.id}
+          >
             <Card.Text>
               <Link to={`/subject/${subject.id}`}>{subject.name}</Link>
             </Card.Text>
           </Card>
-        </CardGroup>
-      ))}
+        ))}
+      </CardGroup>
     </div>
   );
 }
