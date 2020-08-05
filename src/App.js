@@ -9,7 +9,7 @@ import Login from "./pages/Login";
 import { getUserWithStoredToken } from "./store/user/actions";
 import FlashCard from "./pages/FlashCard"
 import Subject from "./pages/Subject"
-import Mypage from "./pages/Mypage"
+import Mypage from "./pages/Mypage/Mypage"
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 // import { Jumbotron } from "react-bootstrap";
