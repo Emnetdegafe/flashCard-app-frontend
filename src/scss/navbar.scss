@@ -1,0 +1,30 @@
+.navbar {
+	&-wrapper {
+		background: $base-color;
+	}
+	&-container {
+		grid-column: L/R;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		padding: 16px 0;
+		color: $base-text;
+	}
+
+	&-header {
+		color: $base-text;
+	}
+	&-navigation {
+		display: flex;
+		align-items: center;
+		button {
+			background-color: $base-color;
+			color: $base-text;
+			border: 1px solid $base-text;
+			margin-left: 10px;
+		}
+	}
+	@media (min-width: $breakpoint-tablet) {
+	}
+}

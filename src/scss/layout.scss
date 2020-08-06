@@ -1,0 +1,12 @@
+body {
+	margin: 0;
+	padding: 0;
+	min-height: 100vh;
+	background-color: $base-color;
+	color: #031508;
+}
+
+.wrapper {
+	display: grid;
+	grid-template-columns: [BL] 1fr [L] minMax(auto, 960px) [R] 1fr [BR];
+}
