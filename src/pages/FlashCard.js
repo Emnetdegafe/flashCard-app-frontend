@@ -22,33 +22,36 @@ export default function FlashCard() {
 
   const handleRadios = (e) => {
     set_selectedOption(parseInt(e.target.value));
-    console.log(e.target.value);
   };
 
   useEffect(() => {
     dispatch(fetchFlashcardById(flashcardId));
   }, [dispatch, flashcardId]);
 
-  console.log(currentFlashcard.status);
+  console.log(alternativeCards.correctResponse);
   if (!currentFlashcard.title) return null;
 
   return (
-    <div>
+    <div className="center">
       <h1>{currentFlashcard.title}</h1>
-      <p>{currentFlashcard.question}</p>
+      <p className='flashcard-body'>{currentFlashcard.question}</p>
       <h3>Options:</h3>
 
-      <form>
+      <form className='options-form'>
         {alternativeCards.possibleCards.map((card, index) => {
           const selected =
-            index === alternativeCards.selectedOption ? true : false;
-          console.log("is selected?", selected);
+            index === selectedOption ? true : false;
+
+          const classNames = !Number.isInteger(selectedOption) ? `options-form__response` :
+            selectedOption === alternativeCards.correctResponse && selectedOption === index ? `options-form__response checked__right` : `options-form__response checked__wrong`
+
           return (
-            <div className="center" key={index}>
+            <div key={index} className={classNames}>
               <label htmlFor={index}>{card.answer}</label>
               <input
                 type={"radio"}
                 checked={selected}
+
                 name={index}
                 id={index}
                 onChange={handleRadios}
@@ -60,20 +63,15 @@ export default function FlashCard() {
       </form>
 
       <h3>{currentFlashcard.status ? "Completed" : "Not completed yet"}</h3>
-      <span>
-        Correct card:{" "}
-        {currentFlashcard.correctResponse === selectedOption
-          ? "WIIIIIII"
-          : "MEEEE"}
-      </span>
-
-      <button
-        onClick={() =>
-          dispatch(updateFlashcardStatus(!currentFlashcard.status))
-        }
-      >
-        Complete now
+      <div className='flashcard-buttons'>
+        <button
+          onClick={() =>
+            dispatch(updateFlashcardStatus(!currentFlashcard.status))
+          }
+        >
+          Complete now
       </button>
-    </div>
+      </div>
+    </div >
   );
 }
