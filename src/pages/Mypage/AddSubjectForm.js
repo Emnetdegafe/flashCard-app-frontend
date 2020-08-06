@@ -10,6 +10,7 @@ export default function AddSubjectForm() {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(AddNewSubject(name));
+    set_name("")
   };
   return (
     <div>
