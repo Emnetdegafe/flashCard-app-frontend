@@ -4,6 +4,7 @@ import { selectAllSubjects } from "../../store/subject/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import AddSubjectForm from "./AddSubjectForm";
+import ProgressBar from "../../components/progressBar";
 
 import { Jumbotron } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
@@ -16,8 +17,12 @@ import CardGroup from "react-bootstrap/CardGroup";
 export default function MyPage() {
   const [showForm, set_showForm] = useState(false);
 
+  //todo: Get the data -> Q1 out of all of the questions, you have this many right and wrong and this many unresolved
+  //todo:
+
   const dispatch = useDispatch();
   const allSubjects = useSelector(selectAllSubjects);
+
   console.log("all subjects", allSubjects);
 
   useEffect(() => {
@@ -26,6 +31,35 @@ export default function MyPage() {
 
   if (!allSubjects || !allSubjects.length > 0) return null;
 
+  const getStatusTrue = allSubjects.map(
+    (subject) =>
+      subject.flashcards.filter((card) => {
+        return card.status === true;
+      }).length
+  );
+
+  const getStatusFalse = allSubjects.map(
+    (subject) =>
+      subject.flashcards.filter((card) => {
+        return card.status === false;
+      }).length
+  );
+
+  const getStatusNull = allSubjects.map(
+    (subject) =>
+      subject.flashcards.filter((card) => {
+        return card.status === null;
+      }).length
+  );
+
+  console.log(
+    "getStatusTrue",
+    getStatusTrue,
+    "getStatusFalse",
+    getStatusFalse,
+    "getStatusNull",
+    getStatusNull
+  );
   return (
     <div>
       <h3>All subjects </h3>
@@ -52,7 +86,11 @@ export default function MyPage() {
           </Card>
         ))}
       </CardGroup>
-
+      <ProgressBar
+        getStatusTrue={getStatusTrue}
+        getStatusFalse={getStatusFalse}
+        getStatusNull={getStatusNull}
+      />
       <button onClick={() => set_showForm(true)}>Create new Subject</button>
       {showForm ? <AddSubjectForm /> : null}
     </div>
