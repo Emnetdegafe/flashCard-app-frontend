@@ -33,21 +33,21 @@ export default function MyPage() {
 
   const getStatusTrue = allSubjects.map(
     (subject) =>
-      subject.flashcards.filter((card) => {
+      subject.flashcards && subject.flashcards.filter((card) => {
         return card.status === true;
       }).length
   );
 
   const getStatusFalse = allSubjects.map(
     (subject) =>
-      subject.flashcards.filter((card) => {
+      subject.flashcards && subject.flashcards.filter((card) => {
         return card.status === false;
       }).length
   );
 
   const getStatusNull = allSubjects.map(
     (subject) =>
-      subject.flashcards.filter((card) => {
+      subject.flashcards && subject.flashcards.filter((card) => {
         return card.status === null;
       }).length
   );
@@ -61,38 +61,27 @@ export default function MyPage() {
     getStatusNull
   );
   return (
-    <div>
-      <h3>All subjects </h3>
-      <CardGroup
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          flexDirection: "row",
-        }}
-      >
+    <div className="wrapper">
+      <section className="title">
+        <h3>All subjects </h3>
+      </section>
+      <div className="Mcard-group">
         {allSubjects.map((subject) => (
-          <Card
-            style={{
-              height: "250px",
-              width: "200px",
-              margin: "5px",
-              background: "#71CB99",
-            }}
-            key={subject.id}
-          >
-            <Card.Text>
+          <div key={subject.id} className='Mcard-group__card'>
               <Link to={`/subject/${subject.id}`}>{subject.name}</Link>
-            </Card.Text>
-          </Card>
+          </div>
         ))}
-      </CardGroup>
+      </div>
+      <section>
+
       <ProgressBar
         getStatusTrue={getStatusTrue}
         getStatusFalse={getStatusFalse}
         getStatusNull={getStatusNull}
-      />
+        />
       <button onClick={() => set_showForm(true)}>Create new Subject</button>
       {showForm ? <AddSubjectForm /> : null}
-    </div>
+      </section>
+    </div >
   );
 }

@@ -1,0 +1,21 @@
+.Mcard-group{
+	grid-column: L/ R;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(120px, 400px));
+	column-gap:12px;
+	row-gap:28px;
+	justify-items: stretch;
+	&__card{
+		padding:32px 12px;
+		justify-self: stretch;
+		background: lightgreen;
+		border-radius: 32px;
+		text-align:center;
+		font-weight: 700;
+		border: 1px solid darkgreen;
+		a{
+
+			color:black;
+		}
+	}
+}
