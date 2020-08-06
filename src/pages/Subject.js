@@ -7,6 +7,7 @@ import { Link, useParams } from "react-router-dom";
 
 import "./index.css";
 import Card from "react-bootstrap/Card";
+import Container from "react-bootstrap/Container";
 import CardGroup from "react-bootstrap/CardGroup";
 import Button from "react-bootstrap/Button";
 
@@ -38,7 +39,7 @@ export default function MyPage() {
 
   if (!activeSubject || !activeSubject.name) return null;
   return (
-    <div>
+    <Container>
       <h3>The subject is: </h3>
       <h1>{activeSubject.name}</h1>
       <div style={{ display: "flex", justifyContent: "center" }}>
@@ -99,6 +100,6 @@ export default function MyPage() {
           <button type="submit">Submit this flashcard</button>
         </form>
       )}
-    </div>
+    </Container>
   );
 }

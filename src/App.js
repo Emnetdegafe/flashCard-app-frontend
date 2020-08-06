@@ -1,29 +1,22 @@
 import React, { useEffect } from "react";
-import "./App.css";
 import { Switch, Route } from "react-router-dom";
-import Navigation from "./components/Navigation";
-import Loading from "./components/Loading";
-import MessageBox from "./components/MessageBox";
+// redux
+import { useDispatch, useSelector } from "react-redux";
+import { selectAppLoading } from "./store/appState/selectors";
+// pages
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import { getUserWithStoredToken } from "./store/user/actions";
 import FlashCard from "./pages/FlashCard"
 import Subject from "./pages/Subject"
 import Mypage from "./pages/Mypage/Mypage"
-import { useDispatch, useSelector } from "react-redux";
-import { selectAppLoading } from "./store/appState/selectors";
-// import { Jumbotron } from "react-bootstrap";
 
-// const Home = () => (
-//   <Jumbotron>
-//     <h1>Home</h1>
-//   </Jumbotron>
-// );
-// const Other = () => (
-//   <Jumbotron>
-//     <h1>Other</h1>
-//   </Jumbotron>
-// );
+// components
+import Navigation from "./components/Navigation";
+import Loading from "./components/Loading";
+import MessageBox from "./components/MessageBox";
+// import "./App.css";
+import './styles.scss'
 
 function App() {
   const dispatch = useDispatch();
