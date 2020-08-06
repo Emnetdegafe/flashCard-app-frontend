@@ -1,18 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
 
-p,
-h2,
-h1,
-Link {
-	text-align: center;
-	font-family: "Indie Flower", cursive;
-}
-
-h3 {
-	text-align: center;
-	font-family: "Anton", sans-serif;
-}
 
 .center {
 	margin: auto;

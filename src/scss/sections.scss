@@ -1,0 +1,29 @@
+section {
+	grid-column: L/ R;
+	&.title {
+		grid-column: L/ span 1;
+		display:flex;
+		justify-content: flex-end;
+		padding: 40px 0 10px 0;
+		
+		h1{
+			font-size:5em;
+			text-align: right;
+			max-width: 400px;
+		}
+	}
+	&.form {
+		grid-column: C/ span 1;
+		text-align: left;
+		display:flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		padding: 40px 0 10px 0;
+		
+		h1{
+			font-size:5em;
+			text-align: left;
+			max-width: 400px;
+		}
+	}
+}

@@ -1,16 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
 
-p,
-h2,
-h1,
-Link {
-	text-align: center;
-	font-family: "Indie Flower", cursive;
-}
 
-h3 {
-	text-align: center;
+h1{
 	font-family: "Anton", sans-serif;
 }
 
@@ -28,7 +20,7 @@ h3 {
 .options-form {
 	background: #ffffff;
 	padding: 22px 16px;
-
+ 
 	margin: 60px 0;
 	display: flex;
 	flex-wrap: wrap;

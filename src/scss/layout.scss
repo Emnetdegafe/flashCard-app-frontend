@@ -8,5 +8,15 @@ body {
 
 .wrapper {
 	display: grid;
-	grid-template-columns: [BL] 1fr [L] minMax(auto, 960px) [R] 1fr [BR];
+	grid-template-columns: [BL] 1fr [L]  minMax(auto, 480px) [C] minMax(auto, 480px) [R] 1fr [BR];
+	grid-gap: 32px;
+	align-items:center;
+	&.colored{
+		background: $base-color;
+		color: $base-text;
+	}
+	&.hero{
+		min-height:94vh;
+		grid-gap: 60px;
+	}
 }
