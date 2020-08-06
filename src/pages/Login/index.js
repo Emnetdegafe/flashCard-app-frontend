@@ -5,7 +5,7 @@ import { login } from "../../store/user/actions";
 import { selectToken } from "../../store/user/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
-
+import RoundedButton from '../../components/RoundedButton'
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -59,9 +59,9 @@ export default function Login() {
             />
           </Form.Group>
           <Form.Group className="mt-5">
-            <Button variant="primary" type="submit" onClick={submitForm}>
+            <RoundedButton type="submit" onClick={submitForm}>
               Log in
-            </Button>
+            </RoundedButton>
           </Form.Group>
           <Link to="/signup" style={{ textAlign: "center" }}>
             Click here to sign up

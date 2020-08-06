@@ -11,6 +11,12 @@ section {
 			text-align: right;
 			max-width: 400px;
 		}
+		@media (max-width: $breakpoint-tablet) {
+			grid-column: L/ R;
+			h1{
+				font-size: 3em;
+			}
+		}
 	}
 	&.form {
 		grid-column: C/ span 1;
@@ -24,6 +30,9 @@ section {
 			font-size:5em;
 			text-align: left;
 			max-width: 400px;
+		}
+		@media (max-width: $breakpoint-tablet) {
+			grid-column: L/ R;
 		}
 	}
 }
