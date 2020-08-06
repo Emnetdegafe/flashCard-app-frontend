@@ -12,7 +12,11 @@ export default function Navigation() {
   const token = useSelector(selectToken);
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar
+      style={{ background: "#031508", border: "#031508" }}
+      bg="light"
+      expand="lg"
+    >
       <Navbar.Brand as={NavLink} to="/">
         YOUR PROJECT NAME
       </Navbar.Brand>
