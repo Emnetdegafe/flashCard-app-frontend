@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from "react";
-
-import Jumbotron from "react-bootstrap/Jumbotron";
 import Form from "react-bootstrap/Form";
-import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
-
 import { login } from "../../store/user/actions";
 import { selectToken } from "../../store/user/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
-import { Col } from "react-bootstrap";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -50,7 +45,7 @@ export default function Login() {
               type="email"
               placeholder="Enter email"
               required
-              />
+            />
           </Form.Group>
 
           <Form.Group controlId="formBasicPassword">
@@ -61,7 +56,7 @@ export default function Login() {
               type="password"
               placeholder="Password"
               required
-              />
+            />
           </Form.Group>
           <Form.Group className="mt-5">
             <Button variant="primary" type="submit" onClick={submitForm}>
