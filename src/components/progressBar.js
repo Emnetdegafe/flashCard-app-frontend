@@ -3,13 +3,16 @@ import { PieChart, Pie, Legend, Tooltip } from "recharts";
 
 export default function progressBar(props) {
   const {
-    allSubjects,
     getStatusTrue,
     getStatusFalse,
-    getStatusNull,
-    name,
-    idOfSubject,
   } = props;
+
+  if (!getStatusTrue ||
+    !getStatusTrue.length < 1 ||
+    !getStatusFalse ||
+    !getStatusFalse.length < 1
+
+  ) return null
 
   const subjectWithMostMistakes = getStatusFalse.sort(
     (a, b) => b.numerOfFalseCards - a.numerOfFalseCards
@@ -19,13 +22,7 @@ export default function progressBar(props) {
     (a, b) => b.numberOfTrueCards - a.numberOfTrueCards
   );
 
-  // const getSubjectName = getStatusTrue.filter((status) => {
-  //   return status.index + 1 === idOfSubject;
-  // });
 
-  // if the subjectId === id return name
-
-  console.log("subjectWithMostMistakes", subjectWithMostMistakes[1]);
 
   const MostWrong = [
     {

@@ -6,9 +6,7 @@ import { Link } from "react-router-dom";
 import AddSubjectForm from "./AddSubjectForm";
 import ProgressBar from "../../components/progressBar";
 import RoundedButton from '../../components/RoundedButton'
-import Card from "react-bootstrap/Card";
 
-import CardGroup from "react-bootstrap/CardGroup";
 
 export default function MyPage() {
   const [showForm, set_showForm] = useState(false);
@@ -16,7 +14,6 @@ export default function MyPage() {
   const dispatch = useDispatch();
   const allSubjects = useSelector(selectAllSubjects);
 
-  console.log("all subjects", allSubjects);
 
   useEffect(() => {
     dispatch(fetchAllSubjets());
@@ -46,16 +43,9 @@ export default function MyPage() {
       }).length
   );
 
-  console.log(
-    "getStatusTrue",
-    getStatusTrue,
-    "getStatusFalse",
-    getStatusFalse,
-    "getStatusNull",
-    getStatusNull
-  );
+
   return (
-    <div className="wrapper">
+    <div className="wrapper colored hero">
       <section className="title">
         <h3>All subjects </h3>
       </section>
@@ -68,8 +58,8 @@ export default function MyPage() {
           </Link>
         ))}
       </div>
-      <section>
-        <RoundedButton onClick={() => set_showForm(true)}>Create new Subject</RoundedButton>
+      <section className='my-page-footer'>
+        <RoundedButton fixedRadius={124} onClick={() => set_showForm(!showForm)}>Create new Subject</RoundedButton>
         {showForm ? <AddSubjectForm /> : null}
 
         <ProgressBar

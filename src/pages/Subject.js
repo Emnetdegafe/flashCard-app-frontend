@@ -77,13 +77,14 @@ export default function MyPage() {
           </Link>
         ))}
       </div>
-      <section>
+      <section className='my-page-footer'>
+        
 
-        <RoundedButton onClick={() => set_showForm(!showForm)}>Add new flashcard</RoundedButton>
+        <RoundedButton fixedRadius={120} onClick={() => set_showForm(!showForm)}>Add new flashcard</RoundedButton>
 
         {showForm && (
 
-          <form onSubmit={(e) => submitNewFlascard(e)}>
+          <form onSubmit={(e) => submitNewFlascard(e)} className='new-element-form'>
             <label htmlFor="name">Name</label>
             <input
               value={name}
@@ -102,7 +103,7 @@ export default function MyPage() {
               id="answer"
               onChange={(e) => set_answer(e.target.value)}
             />
-            <RoundedButton type="submit">Submit this flashcard</RoundedButton>
+            <RoundedButton type="submit" fixedRadius={120}>Submit this flashcard</RoundedButton>
           </form>
         )}
       </section>
