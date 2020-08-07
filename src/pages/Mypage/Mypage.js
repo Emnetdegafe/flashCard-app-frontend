@@ -45,7 +45,7 @@ export default function MyPage() {
 
 
   return (
-    <div className="wrapper">
+    <div className="wrapper colored hero">
       <section className="title">
         <h3>All subjects </h3>
       </section>
