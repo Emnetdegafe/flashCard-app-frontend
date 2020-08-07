@@ -2,16 +2,15 @@ body {
 	margin: 0;
 	padding: 0;
 	min-height: 100vh;
-	background-color: $base-color;
+	background-color: $text-color;
 	color: #031508;
 }
 
 .wrapper {
 	display: grid;
-	grid-template-columns: [BL] 1fr [L] minMax(100px, 460px) [C] minMax(
-			100px,
-			460px
-		) [R] 1fr [BR];
+	grid-template-columns:
+		[BL] 1fr [L] minMax(100px, 460px) [C] minMax(100px, 460px)
+		[R] 1fr [BR];
 	align-items: center;
 	column-gap: 32px;
 	row-gap: 12px;
