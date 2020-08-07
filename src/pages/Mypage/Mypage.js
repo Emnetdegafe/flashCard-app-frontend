@@ -22,27 +22,7 @@ export default function MyPage() {
 
 
 
-  const getStatusTrue = allSubjects && allSubjects.map((subject) => ({
-    numberOfTrueCards: subject.flashcards && subject.flashcards.filter((card) => {
-      return card.status === true;
-    }).length,
-    nameOfSubjectTrue: subject.name,
-  }));
 
-  const getStatusFalse = allSubjects && allSubjects.map((subject) => ({
-    numerOfFalseCards: subject.flashcards && subject.flashcards.filter((card) => {
-      return card.status === false;
-    }).length,
-    nameOftheSubject: subject.name,
-  }));
-
-
-  const getStatusNull = allSubjects && allSubjects.map(
-    (subject) =>
-      subject.flashcards && subject.flashcards.filter((card) => {
-        return card.status === null;
-      }).length
-  );
 
 
   return (
@@ -63,16 +43,13 @@ export default function MyPage() {
         <RoundedButton fixedRadius={124} onClick={() => set_showForm(!showForm)}>Create new Subject</RoundedButton>
         {showForm ? <AddSubjectForm /> : null}
 
-        {allSubjects && allSubjects.length > 3 && (
 
 
-          <ProgressBar
-            getStatusTrue={getStatusTrue}
-            getStatusFalse={getStatusFalse}
-            getStatusNull={getStatusNull}
-          />
-        )}
 
+      </section>
+      <section>
+
+        <ProgressBar />
       </section>
     </div >
   );

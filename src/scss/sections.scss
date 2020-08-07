@@ -46,4 +46,13 @@ section {
 			margin: 32px 0;
 		}
 	}
+	&.charts {
+		display: flex;
+		justify-content: space-between;
+		padding: 64px 0 120px;
+
+		.pieHolder {
+			padding: 12px;
+		}
+	}
 }
