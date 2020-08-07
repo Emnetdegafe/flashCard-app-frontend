@@ -1,21 +1,21 @@
-.Mcard-group{
+.Mcard-group {
 	grid-column: L/ R;
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(120px, 400px));
-	column-gap:12px;
-	row-gap:28px;
+	column-gap: 12px;
+	row-gap: 28px;
 	justify-items: stretch;
-	&__card{
-		padding:32px 12px;
+	&__card {
+		padding: 32px 12px;
 		justify-self: stretch;
-		background: lightgreen;
-		border-radius: 32px;
-		text-align:center;
-		font-weight: 700;
-		border: 1px solid darkgreen;
-		a{
+		background: lightgrey;
 
-			color:black;
-		}
+		border-radius: 32px;
+		text-align: center;
+		font-weight: 700;
+		box-shadow: 2px 4px 7px 1px #44444488;
+		border: 1px solid darkgrey;
+		color: black;
+		font-size: 1.4em;
 	}
 }

@@ -13,9 +13,9 @@ export default function AddSubjectForm() {
     set_name("")
   };
   return (
-    <div>
+    <div className='new-element-form'>
       <h1>Add a subject</h1>
-      <Form as={Col} md={{ span: 6, offset: 3 }} className="mt-5">
+      <Form >
         <Form.Group controlId="text">
           <Form.Label>Name</Form.Label>
           <Form.Control

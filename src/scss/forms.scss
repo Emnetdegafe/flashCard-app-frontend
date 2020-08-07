@@ -4,6 +4,29 @@ button {
 		display: block;
 		border: none;
 		padding: 22px;
-		box-shadow: -4px 3px 8px darkgreen;
+		box-shadow: -4px 3px 8px #44444488;
+	}
+}
+.new-element-form {
+	border: none;
+	padding: 64px 32px;
+	background: lightgray;
+	box-shadow: -4px 3px 8px #44444488;
+	border-radius: 42px;
+	display: flex;
+	flex-direction: column;
+	margin: 0 32px;
+}
+
+.my-page-footer {
+	display: flex;
+	justify-content: center;
+	box-shadow: 0px -10px 16px -20px #ffffffaa;
+	margin-top: 32px;
+	align-items: center;
+	flex-direction: row;
+	padding: 50px 0;
+	@media (max-width: $breakpoint-phone) {
+		flex-direction: column;
 	}
 }
