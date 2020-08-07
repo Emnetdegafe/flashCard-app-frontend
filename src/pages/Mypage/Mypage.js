@@ -61,9 +61,11 @@ export default function MyPage() {
       </section>
       <div className="Mcard-group">
         {allSubjects.map((subject) => (
-          <div key={subject.id} className='Mcard-group__card'>
-              <Link to={`/subject/${subject.id}`}>{subject.name}</Link>
+              <Link to={`/subject/${subject.id}`}key={subject.id} >
+          <div className='Mcard-group__card'>
+              {subject.name}
           </div>
+              </Link>
         ))}
       </div>
       <section>
