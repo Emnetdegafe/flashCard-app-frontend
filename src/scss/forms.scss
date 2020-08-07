@@ -8,6 +8,21 @@ button {
 	}
 }
 .new-element-form {
-	border: 1px solid black;
+	border: none;
 	padding: 64px 32px;
+	background: lightgray;
+	box-shadow: -4px 3px 8px #44444488;
+	border-radius: 42px;
+	display:flex;
+	flex-direction:column;
 }
+
+.my-page-footer {
+	display:flex;
+	justify-content:center;
+	border-top: 1px solid gray;
+	margin-top: 32px;
+	padding-top: 32px;
+	align-items: center;
+ }
+ 
