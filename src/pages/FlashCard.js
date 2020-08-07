@@ -56,16 +56,19 @@ export default function FlashCard() {
                 : `options-form__response checked__wrong`;
 
             return (
-              <div key={index} className={classNames}>
-                <label htmlFor={index}>{card.answer}</label>
-                <input
-                  type={"radio"}
-                  checked={selected}
-                  name={index}
-                  id={index}
-                  onChange={handleRadios}
-                  value={index}
-                />
+              <div key={index} >
+                <label htmlFor={index} className={classNames}>{card.answer}
+                  <input
+                    type={"radio"}
+                    checked={selected}
+                    name={index}
+                    id={index}
+                    onChange={handleRadios}
+                    value={index}
+
+                  />
+                </label>
+
               </div>
             );
           })}

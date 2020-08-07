@@ -34,7 +34,7 @@ export default function PrivAndNext() {
   }
 
   return (
-    <div>
+    <div className='button-navigation'>
       <RoundedButton onClick={(event) => handlePrev(event)}>Previous</RoundedButton>
       <RoundedButton onClick={(event) => handleNext(event)}>Next</RoundedButton>
     </div>
