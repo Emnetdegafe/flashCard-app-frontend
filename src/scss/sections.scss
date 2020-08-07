@@ -2,18 +2,18 @@ section {
 	grid-column: L/ R;
 	&.title {
 		grid-column: L/ span 1;
-		display:flex;
+		display: flex;
 		justify-content: flex-end;
 		padding: 40px 0 10px 0;
-		
-		h1{
-			font-size:5em;
+
+		h1 {
+			font-size: 5em;
 			text-align: right;
 			max-width: 400px;
 		}
 		@media (max-width: $breakpoint-tablet) {
 			grid-column: L/ R;
-			h1{
+			h1 {
 				font-size: 3em;
 			}
 		}
@@ -21,13 +21,13 @@ section {
 	&.form {
 		grid-column: C/ span 1;
 		text-align: left;
-		display:flex;
+		display: flex;
 		flex-direction: column;
 		justify-content: flex-start;
 		padding: 40px 0 10px 0;
-		
-		h1{
-			font-size:5em;
+
+		h1 {
+			font-size: 5em;
 			text-align: left;
 			max-width: 400px;
 		}
@@ -35,11 +35,15 @@ section {
 			grid-column: L/ R;
 		}
 	}
-	&.flashcard{
+	&.flashcard {
 		margin: 32px 64px;
 		background: $base-color;
-		padding: 32px;
+		padding: 62px;
 		border-radius: 32px;
 		box-shadow: 2px 2px 10px 5px darkgrey;
+		@media (max-width: $breakpoint-phone) {
+			padding: 22px;
+			margin: 32px 0;
+		}
 	}
 }

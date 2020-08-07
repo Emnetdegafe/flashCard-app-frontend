@@ -1,8 +1,10 @@
-
 .flashcard-body {
 	margin: 30px 0;
 	border: 1px solid darkgreen;
 	padding: 32px;
+	@media (max-width: $breakpoint-phone) {
+		padding: 12px;
+	}
 }
 
 .options-form {
@@ -14,24 +16,20 @@
 	flex-wrap: wrap;
 	justify-content: space-evenly;
 	align-items: stretch;
-	@media (max-width: $breakpoint-tablet) {
-		flex-direction: column;
-	}
+	flex-direction: column;
 	&__response {
 		padding: 38px;
 		display: block;
 		background: lightgray;
 		border: 4px solid gray;
 		text-align: center;
-		input {
-			// display: none;
+		&.checked__wrong {
+			border: 4px solid lightcoral !important;
 		}
-	}
-	&checked__wrong {
-		border: 4px solid lightcoral;
-	}
-	&checked__right {
-		border: 4px solid green;
+		&.checked__right {
+			border: 4px solid green !important;
+			background: lightgreen;
+		}
 	}
 }
 

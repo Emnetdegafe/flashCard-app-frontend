@@ -4,7 +4,6 @@ import { postNewFlashcard } from "../store/flashcard/actions";
 import { selectActiveSubject } from "../store/subject/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import "./index.css";
 import RoundedButton from '../components/RoundedButton'
 import { useHistory } from "react-router-dom";
 

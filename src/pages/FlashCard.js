@@ -10,7 +10,6 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import "./index.css";
 import PrivAndNext from "../components/PrivAndNext";
 import RoundedButton from '../components/RoundedButton'
 export default function FlashCard() {
@@ -71,7 +70,7 @@ export default function FlashCard() {
             );
           })}
         </form>
-     
+
 
         <h3>{currentFlashcard.status ? "Completed" : "Not completed yet"}</h3>
         <div className="flashcard-buttons">
