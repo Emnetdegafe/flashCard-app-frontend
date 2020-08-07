@@ -4,6 +4,10 @@ button {
 		display: block;
 		border: none;
 		padding: 22px;
-		box-shadow: -4px 3px 8px darkgreen;
+		box-shadow: -4px 3px 8px #44444488;
 	}
+}
+.new-element-form {
+	border: 1px solid black;
+	padding: 64px 32px;
 }

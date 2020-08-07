@@ -62,7 +62,7 @@ export default function MyPage() {
         ))}
       </div>
       <section>
-        <RoundedButton onClick={() => set_showForm(!showForm)}>Create new Subject</RoundedButton>
+        <RoundedButton fixedRadius={124} onClick={() => set_showForm(!showForm)}>Create new Subject</RoundedButton>
         {showForm ? <AddSubjectForm /> : null}
 
         <ProgressBar
