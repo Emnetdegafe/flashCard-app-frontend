@@ -19,24 +19,25 @@ export default function MyPage() {
     dispatch(fetchAllSubjets());
   }, [dispatch]);
 
-  if (!allSubjects || !allSubjects.length > 0) return null;
 
-  const getStatusTrue = allSubjects.map((subject) => ({
-    numberOfTrueCards: subject.flashcards.filter((card) => {
+
+
+  const getStatusTrue = allSubjects && allSubjects.map((subject) => ({
+    numberOfTrueCards: subject.flashcards && subject.flashcards.filter((card) => {
       return card.status === true;
     }).length,
     nameOfSubjectTrue: subject.name,
   }));
 
-  const getStatusFalse = allSubjects.map((subject) => ({
-    numerOfFalseCards: subject.flashcards.filter((card) => {
+  const getStatusFalse = allSubjects && allSubjects.map((subject) => ({
+    numerOfFalseCards: subject.flashcards && subject.flashcards.filter((card) => {
       return card.status === false;
     }).length,
     nameOftheSubject: subject.name,
   }));
 
 
-  const getStatusNull = allSubjects.map(
+  const getStatusNull = allSubjects && allSubjects.map(
     (subject) =>
       subject.flashcards && subject.flashcards.filter((card) => {
         return card.status === null;
@@ -50,7 +51,7 @@ export default function MyPage() {
         <h3>All subjects </h3>
       </section>
       <div className="Mcard-group">
-        {allSubjects.map((subject) => (
+        {allSubjects && allSubjects.map((subject) => (
           <Link to={`/subject/${subject.id}`} key={subject.id} >
             <div className='Mcard-group__card'>
               {subject.name}
@@ -62,11 +63,15 @@ export default function MyPage() {
         <RoundedButton fixedRadius={124} onClick={() => set_showForm(!showForm)}>Create new Subject</RoundedButton>
         {showForm ? <AddSubjectForm /> : null}
 
-        <ProgressBar
-          getStatusTrue={getStatusTrue}
-          getStatusFalse={getStatusFalse}
-          getStatusNull={getStatusNull}
-        />
+        {allSubjects && allSubjects.length > 3 && (
+
+
+          <ProgressBar
+            getStatusTrue={getStatusTrue}
+            getStatusFalse={getStatusFalse}
+            getStatusNull={getStatusNull}
+          />
+        )}
 
       </section>
     </div >
