@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { selectFlashCards } from "../store/subject/selectors";
 import { selectCurrentFlashcard } from "../store/flashcard/selectors";
 import { useHistory } from "react-router-dom";
-
+import RoundedButton from './RoundedButton'
 export default function PrivAndNext() {
   const history = useHistory();
 
@@ -35,8 +35,8 @@ export default function PrivAndNext() {
 
   return (
     <div>
-      <button onClick={(event) => handlePrev(event)}>Privious</button>
-      <button onClick={(event) => handleNext(event)}>Next</button>
+      <RoundedButton onClick={(event) => handlePrev(event)}>Previous</RoundedButton>
+      <RoundedButton onClick={(event) => handleNext(event)}>Next</RoundedButton>
     </div>
   );
 }
