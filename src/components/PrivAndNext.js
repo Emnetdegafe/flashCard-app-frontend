@@ -4,19 +4,17 @@ import { selectFlashCards } from "../store/subject/selectors";
 import { selectCurrentFlashcard } from "../store/flashcard/selectors";
 import { useHistory } from "react-router-dom";
 
-export default function PrivAndNext(props) {
+export default function PrivAndNext() {
   const history = useHistory();
 
   const flashcards = useSelector(selectFlashCards);
   console.log("1234", flashcards);
-  const currentCard = useSelector(selectCurrentFlashcard);
-  const currentCardId = props.currentFlashcardId;
+  // const currentCard = useSelector(selectCurrentFlashcard);
+  // const currentCardId = props.currentFlashcardId;
 
-  //   const [next, set_next] = useState(false);
-  //   const [previous, set_previous] = useState(false);
-  const [activeCard, set_activeCard] = useState(currentCardId);
 
-  //   const [index, set_index] = useState(0);
+  // const [activeCard, set_activeCard] = useState(currentCardId);
+
   if (!flashcards || flashcards.length < 1) {
     return null;
   }
