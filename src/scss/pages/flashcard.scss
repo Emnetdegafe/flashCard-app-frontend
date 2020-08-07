@@ -1,0 +1,43 @@
+.flashcard-body {
+	margin: 30px 0;
+	border: 1px solid darkgreen;
+	padding: 32px;
+	@media (max-width: $breakpoint-phone) {
+		padding: 12px;
+	}
+}
+
+.options-form {
+	background: #ffffff;
+	padding: 22px 16px;
+
+	margin: 60px 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	align-items: stretch;
+	flex-direction: column;
+	&__response {
+		padding: 38px;
+		display: block;
+		background: lightgray;
+		border: 4px solid gray;
+		text-align: center;
+		&.checked__wrong {
+			border: 4px solid lightcoral !important;
+		}
+		&.checked__right {
+			border: 4px solid green !important;
+			background: lightgreen;
+		}
+	}
+}
+
+.flashcard-buttons {
+	text-align: center;
+	padding: 16px 10px;
+	margin-bottom: 40px;
+}
+.flashcard-buttons button {
+	padding: 16px 18px;
+}

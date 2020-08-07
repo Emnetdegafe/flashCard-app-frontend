@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import AddSubjectForm from "./AddSubjectForm";
 import ProgressBar from "../../components/progressBar";
-
+import RoundedButton from '../../components/RoundedButton'
 import Card from "react-bootstrap/Card";
 
 import CardGroup from "react-bootstrap/CardGroup";
@@ -61,20 +61,23 @@ export default function MyPage() {
       </section>
       <div className="Mcard-group">
         {allSubjects.map((subject) => (
-          <div key={subject.id} className='Mcard-group__card'>
-              <Link to={`/subject/${subject.id}`}>{subject.name}</Link>
-          </div>
+          <Link to={`/subject/${subject.id}`} key={subject.id} >
+            <div className='Mcard-group__card'>
+              {subject.name}
+            </div>
+          </Link>
         ))}
       </div>
       <section>
+        <RoundedButton onClick={() => set_showForm(true)}>Create new Subject</RoundedButton>
+        {showForm ? <AddSubjectForm /> : null}
 
-      <ProgressBar
-        getStatusTrue={getStatusTrue}
-        getStatusFalse={getStatusFalse}
-        getStatusNull={getStatusNull}
+        <ProgressBar
+          getStatusTrue={getStatusTrue}
+          getStatusFalse={getStatusFalse}
+          getStatusNull={getStatusNull}
         />
-      <button onClick={() => set_showForm(true)}>Create new Subject</button>
-      {showForm ? <AddSubjectForm /> : null}
+
       </section>
     </div >
   );

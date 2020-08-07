@@ -4,12 +4,8 @@ import { postNewFlashcard } from "../store/flashcard/actions";
 import { selectActiveSubject } from "../store/subject/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import "./index.css";
-import Card from "react-bootstrap/Card";
-import Container from "react-bootstrap/Container";
-import CardGroup from "react-bootstrap/CardGroup";
-import Button from "react-bootstrap/Button";
-import Anime, { anime } from "react-anime";
+import RoundedButton from '../components/RoundedButton'
+import { useHistory } from "react-router-dom";
 
 export default function MyPage() {
   const { subjectId } = useParams();
@@ -19,6 +15,24 @@ export default function MyPage() {
   const [answer, set_answer] = useState("");
   const dispatch = useDispatch();
   const activeSubject = useSelector(selectActiveSubject);
+  const history = useHistory();
+
+
+  useEffect(() => {
+    dispatch(fetchSubjectById(subjectId));
+  }, [subjectId, dispatch]);
+
+  // here we breack the component from rendering if the actions didn't complete yet.
+  if (!activeSubject || !activeSubject.name) return null;
+
+
+
+  const randomFlashcard = activeSubject.flashcards[Math.floor(Math.random() * activeSubject.flashcards.length)];
+
+
+  function handleNext(event) {
+    history.push(`/flashcards/${randomFlashcard.id} `);
+  }
 
   const submitNewFlascard = (e) => {
     e.preventDefault();
@@ -31,58 +45,66 @@ export default function MyPage() {
     dispatch(postNewFlashcard(flashcardObject));
   };
 
-  useEffect(() => {
-    dispatch(fetchSubjectById(subjectId));
-  }, [subjectId, dispatch]);
 
-  if (!activeSubject || !activeSubject.name) return null;
+
   return (
     <div className='wrapper colored hero'>
-      <section className=''>
-        <h3>The subject is: </h3>
-        <h1>{activeSubject.name}</h1>
-        <h3>All flashcards:</h3>
+      <section className='button-navigation'>
+        <div>
+
+          <h3>The subject is: </h3>
+          <h1>{activeSubject.name}</h1>
+          <h3>All flashcards:</h3>
+        </div>
+        {!activeSubject.flashcards || activeSubject.flashcards.length < 1 ?
+          null :
+
+          <div>
+            <RoundedButton onClick={handleNext}>Start playing</RoundedButton>
+          </div>
+        }
       </section>
       <div
         className='Mcard-group'
       >
         {activeSubject.flashcards.map((flashcard) => (
           <Link to={`/flashcards/${flashcard.id}`}>
-          <div className='Mcard-group__card'
-            key={flashcard.id}
-          >
+            <div className='Mcard-group__card'
+              key={flashcard.id}
+            >
               {flashcard.name}
-          </div>
-              </Link>
+            </div>
+          </Link>
         ))}
       </div>
       <section>
 
-      <button onClick={() => set_showForm(!showForm)}>Add new flashcard</button>
+        <RoundedButton onClick={() => set_showForm(!showForm)}>Add new flashcard</RoundedButton>
 
-      {showForm && (
-        <form onSubmit={(e) => submitNewFlascard(e)}>
-          <label htmlFor="name">Name</label>
-          <input
-            value={name}
-            id="name"
-            onChange={(e) => set_name(e.target.value)}
+        {showForm && (
+
+          <form onSubmit={(e) => submitNewFlascard(e)}>
+            <label htmlFor="name">Name</label>
+            <input
+              value={name}
+              id="name"
+              onChange={(e) => set_name(e.target.value)}
             />
-          <label htmlFor="question">question</label>
-          <input
-            value={question}
-            id="question"
-            onChange={(e) => set_question(e.target.value)}
+            <label htmlFor="question">question</label>
+            <input
+              value={question}
+              id="question"
+              onChange={(e) => set_question(e.target.value)}
             />
-          <label htmlFor="answer">answer</label>
-          <input
-            value={answer}
-            id="answer"
-            onChange={(e) => set_answer(e.target.value)}
+            <label htmlFor="answer">answer</label>
+            <input
+              value={answer}
+              id="answer"
+              onChange={(e) => set_answer(e.target.value)}
             />
-          <button type="submit">Submit this flashcard</button>
-        </form>
-      )}
+            <RoundedButton type="submit">Submit this flashcard</RoundedButton>
+          </form>
+        )}
       </section>
     </div>
   );
