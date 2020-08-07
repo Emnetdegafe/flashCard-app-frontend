@@ -43,6 +43,9 @@ export default function MyPage() {
       subjectId: activeSubject.id,
     };
     dispatch(postNewFlashcard(flashcardObject));
+    set_name(" ")
+    set_answer(" ")
+    set_question(" ")
   };
 
 
