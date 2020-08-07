@@ -1,5 +1,4 @@
 import React from "react";
-import { ProgressBar } from "react-bootstrap";
 import { PieChart, Pie, Legend, Tooltip } from "recharts";
 
 export default function progressBar(props) {
@@ -93,7 +92,6 @@ export default function progressBar(props) {
 
         <Tooltip />
       </PieChart>
-      <ProgressBar now={60} />
     </div>
   );
 }

@@ -6,19 +6,12 @@ import { Link } from "react-router-dom";
 import AddSubjectForm from "./AddSubjectForm";
 import ProgressBar from "../../components/progressBar";
 
-import { Jumbotron } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+
 import CardGroup from "react-bootstrap/CardGroup";
 
 export default function MyPage() {
   const [showForm, set_showForm] = useState(false);
-
-  //todo: Get the data -> Q1 out of all of the questions, you have this many right and wrong and this many unresolved
-  //todo:
 
   const dispatch = useDispatch();
   const allSubjects = useSelector(selectAllSubjects);
@@ -31,19 +24,19 @@ export default function MyPage() {
 
   if (!allSubjects || !allSubjects.length > 0) return null;
 
-  const getStatusTrue = allSubjects.map(
-    (subject) =>
-      subject.flashcards.filter((card) => {
-        return card.status === true;
-      }).length
-  );
+  const getStatusTrue = allSubjects.map((subject) => ({
+    numberOfTrueCards: subject.flashcards.filter((card) => {
+      return card.status === true;
+    }).length,
+    nameOfSubjectTrue: subject.name,
+  }));
 
-  const getStatusFalse = allSubjects.map(
-    (subject) =>
-      subject.flashcards.filter((card) => {
-        return card.status === false;
-      }).length
-  );
+  const getStatusFalse = allSubjects.map((subject) => ({
+    numerOfFalseCards: subject.flashcards.filter((card) => {
+      return card.status === false;
+    }).length,
+    nameOftheSubject: subject.name,
+  }));
 
   const getStatusNull = allSubjects.map(
     (subject) =>
