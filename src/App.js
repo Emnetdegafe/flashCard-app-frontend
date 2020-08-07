@@ -3,6 +3,7 @@ import { Switch, Route, useHistory } from "react-router-dom";
 // redux
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
+import { selectToken } from "./store/user/selectors";
 // pages
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
