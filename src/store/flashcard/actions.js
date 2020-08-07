@@ -4,10 +4,12 @@ export const ADD_ACTIVE_FLASHCARD = 'ADD_ACTIVE_FLASHCARD'
 export const ADD_ALTERNATIVES = 'ADD_ALTERNATIVES'
 
 
+
 export const fetchFlashcardById = (id) => async (dispatch, useState) => {
 	const { token } = useState().user
 	try {
 		const response = await buildAxios(token).get(`/flashcards/${id}`)
+
 		const { flashcard, alt } = response.data
 		console.log('flashcard', flashcard)
 		dispatch({
@@ -22,6 +24,9 @@ export const fetchFlashcardById = (id) => async (dispatch, useState) => {
 				alternatives: alt,
 			}
 		})
+		if(!useState().subject.activeSubject.name) {
+			dispatch (fetchSubjectById(flashcard.subjectId))
+		}
 
 	} catch (e) {
 		console.log('error', e)
