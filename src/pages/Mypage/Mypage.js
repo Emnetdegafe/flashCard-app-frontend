@@ -46,14 +46,7 @@ export default function MyPage() {
       }).length
   );
 
-  console.log(
-    "getStatusTrue",
-    getStatusTrue,
-    "getStatusFalse",
-    getStatusFalse,
-    "getStatusNull",
-    getStatusNull
-  );
+
   return (
     <div className="wrapper">
       <section className="title">
@@ -69,7 +62,7 @@ export default function MyPage() {
         ))}
       </div>
       <section>
-        <RoundedButton onClick={() => set_showForm(true)}>Create new Subject</RoundedButton>
+        <RoundedButton onClick={() => set_showForm(!showForm)}>Create new Subject</RoundedButton>
         {showForm ? <AddSubjectForm /> : null}
 
         <ProgressBar
