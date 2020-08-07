@@ -50,7 +50,10 @@ section {
 		display: flex;
 		justify-content: space-between;
 		padding: 64px 0 120px;
-
+		flex-direction: row;
+		@media (max-width: $breakpoint-tablet) {
+			flex-direction: column;
+		}
 		.pieHolder {
 			padding: 12px;
 		}
