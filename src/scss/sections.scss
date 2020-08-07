@@ -35,4 +35,11 @@ section {
 			grid-column: L/ R;
 		}
 	}
+	&.flashcard{
+		margin: 32px 64px;
+		background: $base-color;
+		padding: 32px;
+		border-radius: 32px;
+		box-shadow: 2px 2px 10px 5px darkgrey;
+	}
 }

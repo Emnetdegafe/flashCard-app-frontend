@@ -33,14 +33,12 @@ export default function FlashCard() {
   if (!currentFlashcard.title) return null;
 
   return (
-    <div className="wrapper colored">
-      <section>
+    <div className="wrapper">
+      <section className="flashcard">
 
         <PrivAndNext currentFlashcardId={flashcardId} />
         <h1>{currentFlashcard.title}</h1>
         <p className="flashcard-body">{currentFlashcard.question}</p>
-      </section>
-      <section>
 
         <h3>Options:</h3>
 
@@ -73,8 +71,7 @@ export default function FlashCard() {
             );
           })}
         </form>
-      </section>
-      <section>
+     
 
         <h3>{currentFlashcard.status ? "Completed" : "Not completed yet"}</h3>
         <div className="flashcard-buttons">
